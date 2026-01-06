@@ -5,6 +5,7 @@ var colors = {
   , 'regex' : 'blue'
   , 'undef' : 'grey'
   , 'null'  : 'grey'
+  , 'hole'  : '#555555'
   , 'attr'  : 'green'
   , 'quot'  : 'yellow'
   , 'punc'  : 'yellow'
