@@ -29,7 +29,14 @@ var colors = {
 module.exports = (function () {
 
   function jsome (json, callBack) {
-    return jsome.parse(stringify(json), callBack);
+    var output = generator.gen(json, jsome.level.start);
+    if(Array.isArray(output)) {
+      console.log.apply(console, output);
+    } else {
+      console.log(output);
+    }
+    callBack && callBack();
+    return json;
   }
 
   jsome.colors  = colors;
@@ -59,17 +66,10 @@ module.exports = (function () {
     return json;
   }
 
-  jsome.getColoredString = function(jsonString, callBack){
-    var json = JSON.parse(stringify(jsonString));
-    if (!jsome.params.async) {
-      var output = generator.gen(json, jsome.level.start);
-      return output
-    } else {
-      setTimeout(function () {
-        var output = generator.gen(json, jsome.level.start)
-        callBack && callBack(output);
-      });
-    }
+  jsome.getColoredString = function(json, callBack){
+    var output = generator.gen(json, jsome.level.start);
+    callBack && callBack(output);
+    return output;
   }
 
 
