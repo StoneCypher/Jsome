@@ -6,6 +6,7 @@ var colors = {
   , 'undef' : 'grey'
   , 'null'  : 'grey'
   , 'hole'  : '#777777'
+  , 'bigint': 'cyan'
   , 'symbol': 'yellow'
   , 'attr'  : 'green'
   , 'quot'  : 'yellow'
